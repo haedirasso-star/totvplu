@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>تحميل تطبيق توتيفي TOTV+ | نسخة أندرويد ونسخة شاشات سمارت</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="logo44.png">
+    <link rel="shortcut icon" href="logo44.png">
+    <link rel="apple-touch-icon" href="logo44.png">
+
+    <meta name="description" content="تحميل تطبيق توتيفي TOTV+ الرسمي - نسخة أندرويد ونسخة شاشات السمارت (Smart TV). مشاهدة الأفلام والمسلسلات ومباريات كرة القدم بجودة 4K.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://totv.app/download.html">
+
+    <meta property="og:title" content="تحميل تطبيق توتيفي TOTV+ | أندرويد وشاشات سمارت">
+    <meta property="og:description" content="حمّل توتيفي TOTV+ لأجهزة الأندرويد وشاشات السمارت واستمتع بالأفلام والمسلسلات والمباريات بجودة 4K.">
+    <meta property="og:image" content="https://totv.app/logo44.png">
+    <meta property="og:url" content="https://totv.app/download.html">
+    <meta property="og:type" content="website">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --gold:#FFD700;
+            --gold-deep:#B8860B;
+            --gold-soft:#E8C766;
+            --ink:#000000;
+            --ink-2:#0a0a0a;
+            --surface:#141414;
+            --surface-2:#1d1d1d;
+            --text:#ffffff;
+            --text-dim:#b3b3b3;
+            --android:#3DDC84;
+        }
+        html{scroll-behavior:smooth}
+        body{
+            background:var(--ink);
+            font-family:'Cairo','Tajawal',sans-serif;
+            direction:rtl;
+            min-height:100vh;
+            color:var(--text);
+            position:relative;
+            overflow-x:hidden;
+        }
+
+        /* ===== خلفية جدار البوسترات (تُملأ من مفتاح البوسترات TMDB) ===== */
+        .poster-wall{
+            position:fixed;
+            inset:0;
+            z-index:0;
+            display:grid;
+            grid-template-columns:repeat(8,1fr);
+            gap:6px;
+            opacity:0;
+            transition:opacity 1.4s ease;
+            filter:saturate(1.05);
+        }
+        .poster-wall.show{opacity:.32}
+        .poster-wall .pw-cell{
+            width:100%;
+            aspect-ratio:2/3;
+            background-size:cover;
+            background-position:center;
+            border-radius:6px;
+        }
+        /* طبقة التعتيم فوق البوسترات لتبقى الكتابة واضحة */
+        .wall-veil{
+            position:fixed;
+            inset:0;
+            z-index:1;
+            background:
+                radial-gradient(circle at 50% 18%, rgba(255,215,0,.10), transparent 45%),
+                linear-gradient(180deg, rgba(0,0,0,.82) 0%, rgba(0,0,0,.92) 55%, rgba(0,0,0,.98) 100%);
+            pointer-events:none;
+        }
+
+        .container{
+            position:relative;
+            z-index:2;
+            max-width:920px;
+            margin:0 auto;
+            padding:40px 20px 60px;
+        }
+
+        /* ===== الهيدر ===== */
+        .top-brand{
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            gap:14px;
+            margin-bottom:28px;
+        }
+        .top-brand img{
+            width:54px;height:54px;object-fit:contain;
+            filter:drop-shadow(0 0 18px rgba(255,215,0,.7));
+        }
+        .top-brand .name{
+            font-size:1.9rem;font-weight:900;
+            background:linear-gradient(135deg,var(--gold),#fff);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+        }
+
+        /* ===== بطاقة التحميل الرئيسية ===== */
+        .hero-card{
+            background:linear-gradient(160deg, rgba(20,20,20,.92), rgba(8,8,8,.92));
+            border:1px solid rgba(255,215,0,.28);
+            border-radius:30px;
+            padding:38px 26px 32px;
+            text-align:center;
+            box-shadow:0 24px 60px rgba(0,0,0,.6);
+            margin-bottom:26px;
+        }
+        .eyebrow{
+            display:inline-flex;align-items:center;gap:8px;
+            background:rgba(255,215,0,.12);
+            border:1px solid rgba(255,215,0,.35);
+            color:var(--gold);
+            padding:6px 18px;border-radius:50px;
+            font-size:.82rem;font-weight:700;margin-bottom:18px;
+        }
+        .hero-card h1{
+            font-size:2rem;font-weight:900;line-height:1.3;
+            background:linear-gradient(135deg,#fff 10%,var(--gold) 90%);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+            margin-bottom:10px;
+        }
+        .hero-card .lead{color:var(--text-dim);font-size:.98rem;margin-bottom:30px}
+
+        /* ===== الأزرار الحصرية (تذاكر التحميل) ===== */
+        .download-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:18px;
+            margin:0 auto 6px;
+            max-width:620px;
+        }
+        .dl-ticket{
+            position:relative;
+            border-radius:22px;
+            padding:26px 18px 22px;
+            cursor:pointer;
+            overflow:hidden;
+            text-align:center;
+            text-decoration:none;
+            display:block;
+            border:1.5px solid rgba(255,215,0,.4);
+            transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+            isolation:isolate;
+        }
+        /* خلفية البوسترات داخل كل زر */
+        .dl-ticket .ticket-bg{
+            position:absolute;inset:0;z-index:-2;
+            background-size:cover;background-position:center;
+            transform:scale(1.05);
+            transition:transform .6s ease;
+        }
+        .dl-ticket .ticket-bg::after{
+            content:'';position:absolute;inset:0;
+        }
+        .dl-ticket .ticket-tint{
+            position:absolute;inset:0;z-index:-1;
+        }
+        .dl-ticket:hover{transform:translateY(-6px);border-color:var(--gold)}
+        .dl-ticket:hover .ticket-bg{transform:scale(1.15)}
+
+        /* زر أندرويد */
+        .dl-android .ticket-tint{
+            background:linear-gradient(160deg, rgba(10,30,18,.78), rgba(0,0,0,.92));
+        }
+        .dl-android:hover{box-shadow:0 16px 40px rgba(61,220,132,.28)}
+        .dl-android .ticket-icon{color:var(--android)}
+
+        /* زر شاشات سمارت */
+        .dl-tv .ticket-tint{
+            background:linear-gradient(160deg, rgba(40,30,0,.78), rgba(0,0,0,.92));
+        }
+        .dl-tv:hover{box-shadow:0 16px 40px rgba(255,215,0,.28)}
+        .dl-tv .ticket-icon{color:var(--gold)}
+
+        .ticket-icon{font-size:2.6rem;margin-bottom:12px;display:block;
+            filter:drop-shadow(0 0 14px rgba(0,0,0,.6))}
+        .ticket-title{font-size:1.18rem;font-weight:900;color:#fff;margin-bottom:4px}
+        .ticket-sub{font-size:.78rem;color:var(--text-dim);margin-bottom:14px}
+        .ticket-cta{
+            display:inline-flex;align-items:center;gap:8px;
+            background:linear-gradient(135deg,var(--gold-deep),var(--gold));
+            color:#000;font-weight:800;font-size:.9rem;
+            padding:10px 22px;border-radius:50px;
+            box-shadow:0 6px 18px rgba(255,215,0,.35);
+        }
+        .dl-android .ticket-cta{
+            background:linear-gradient(135deg,#2bb46b,var(--android));
+            box-shadow:0 6px 18px rgba(61,220,132,.4);
+        }
+
+        .meta-row{
+            display:flex;justify-content:center;gap:18px;flex-wrap:wrap;
+            margin-top:24px;color:#888;font-size:.78rem;
+        }
+        .meta-row span{display:inline-flex;align-items:center;gap:6px}
+        .meta-row i{color:var(--gold)}
+
+        .dl-status{
+            margin-top:16px;font-size:.85rem;color:var(--gold);
+            display:none;align-items:center;justify-content:center;gap:8px;
+        }
+
+        /* ===== بطاقة عامة ===== */
+        .card{
+            background:rgba(10,10,10,.85);
+            border:1px solid rgba(255,215,0,.22);
+            border-radius:26px;padding:28px 24px;margin-bottom:22px;
+        }
+        .section-title{
+            font-size:1.35rem;font-weight:900;color:var(--gold);
+            display:flex;align-items:center;gap:10px;
+            border-right:4px solid var(--gold);padding-right:14px;margin-bottom:20px;
+        }
+
+        /* ===== بطاقة iOS ===== */
+        .ios-card{
+            background:linear-gradient(150deg, rgba(15,15,20,.9), rgba(28,28,34,.92));
+            border:1px solid rgba(255,215,0,.45);text-align:center;
+        }
+        .ios-badge{
+            display:inline-flex;align-items:center;gap:8px;
+            background:rgba(255,215,0,.14);padding:6px 16px;border-radius:40px;
+            font-size:.82rem;color:var(--gold);margin-bottom:14px;
+        }
+        .ios-card h2{color:var(--gold);font-size:1.3rem;margin-bottom:12px}
+        .ios-card p{color:#ccc;line-height:1.7;margin-bottom:18px;font-size:.92rem}
+        .btn-ios{
+            display:inline-flex;align-items:center;gap:12px;justify-content:center;
+            background:linear-gradient(135deg,#2c2c2e,#1c1c1e);
+            border:1px solid var(--gold);color:var(--gold);
+            padding:13px 26px;border-radius:50px;font-weight:700;
+            text-decoration:none;transition:all .3s;width:100%;max-width:420px;
+        }
+        .btn-ios:hover{background:var(--gold);color:#000;transform:translateY(-3px)}
+
+        /* ===== خطوات التثبيت ===== */
+        .badges{display:flex;gap:10px;margin-bottom:18px;flex-wrap:wrap}
+        .badges span{background:rgba(255,215,0,.15);padding:5px 16px;border-radius:20px;color:var(--gold);font-size:.82rem;font-weight:700}
+        .step-item{display:flex;gap:14px;align-items:flex-start;
+            background:rgba(255,255,255,.03);padding:15px;border-radius:18px;margin-bottom:14px;transition:all .3s}
+        .step-item:hover{background:rgba(255,215,0,.05);transform:translateX(-5px)}
+        .step-num{width:42px;height:42px;flex-shrink:0;border-radius:50%;
+            background:linear-gradient(135deg,var(--gold-deep),var(--gold));color:#000;
+            font-weight:900;font-size:1.2rem;display:flex;align-items:center;justify-content:center}
+        .step-item h3{color:var(--gold);font-size:1.05rem;margin-bottom:5px}
+        .step-item p{color:var(--text-dim);font-size:.85rem;line-height:1.6}
+        .step-item code{background:rgba(255,215,0,.12);padding:2px 8px;border-radius:8px;color:var(--gold);font-size:.8rem}
+
+        /* ===== الأسئلة الشائعة ===== */
+        .faq-item{background:rgba(255,255,255,.03);border-radius:14px;overflow:hidden;margin-bottom:10px}
+        .faq-q{padding:15px 18px;display:flex;justify-content:space-between;align-items:center;
+            cursor:pointer;font-weight:700;color:var(--gold);transition:background .3s;gap:12px}
+        .faq-q:hover{background:rgba(255,215,0,.05)}
+        .faq-q i.chev{transition:transform .3s}
+        .faq-item.active .faq-q i.chev{transform:rotate(180deg)}
+        .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease;
+            color:var(--text-dim);font-size:.86rem;line-height:1.7;padding:0 18px}
+        .faq-item.active .faq-a{max-height:240px;padding:0 18px 16px}
+
+        /* ===== فوتر ===== */
+        .footer-actions{text-align:center;margin-top:8px}
+        .back-home{display:inline-flex;align-items:center;gap:8px;
+            background:rgba(255,255,255,.08);border:1px solid rgba(255,215,0,.3);
+            color:var(--gold);text-decoration:none;padding:11px 26px;border-radius:50px;
+            font-size:.92rem;transition:all .3s}
+        .back-home:hover{background:var(--gold);color:#000}
+        .safety{background:rgba(255,215,0,.1);border-radius:14px;padding:13px;
+            margin-top:18px;text-align:center;font-size:.76rem;color:var(--gold)}
+
+        @media (max-width:600px){
+            .poster-wall{grid-template-columns:repeat(5,1fr)}
+            .hero-card h1{font-size:1.6rem}
+            .download-grid{grid-template-columns:1fr;max-width:360px}
+            .ticket-icon{font-size:2.3rem}
+            .section-title{font-size:1.2rem}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- جدار البوسترات (يُملأ تلقائياً بمفتاح البوسترات) -->
+    <div class="poster-wall" id="posterWall"></div>
+    <div class="wall-veil"></div>
+
+    <div class="container">
+
+        <div class="top-brand">
+            <img src="logo44.png" alt="توتيفي TOTV+" onerror="this.src='logo.png'">
+            <span class="name">توتيفي TOTV+</span>
+        </div>
+
+        <!-- ===== بطاقة التحميل الرئيسية ===== -->
+        <div class="hero-card">
+            <span class="eyebrow"><i class="fas fa-bolt"></i> التحميل الرسمي · الإصدار الأحدث</span>
+            <h1>حمّل توتيفي TOTV+ الآن</h1>
+            <p class="lead">اختر النسخة المناسبة لجهازك — أفلام ومسلسلات ومباريات مباشرة بجودة 4K</p>
+
+            <div class="download-grid">
+                <!-- زر أندرويد -->
+                <a class="dl-ticket dl-android" id="btnAndroid" href="#" role="button">
+                    <span class="ticket-bg" id="bgAndroid"></span>
+                    <span class="ticket-tint"></span>
+                    <i class="fab fa-android ticket-icon"></i>
+                    <div class="ticket-title">أندرويد</div>
+                    <div class="ticket-sub">هاتف · تابلت</div>
+                    <span class="ticket-cta"><i class="fas fa-download"></i> تحميل APK</span>
+                </a>
+
+                <!-- زر شاشات سمارت -->
+                <a class="dl-ticket dl-tv" id="btnTV" href="#" role="button">
+                    <span class="ticket-bg" id="bgTV"></span>
+                    <span class="ticket-tint"></span>
+                    <i class="fas fa-tv ticket-icon"></i>
+                    <div class="ticket-title">شاشات سمارت</div>
+                    <div class="ticket-sub">Smart TV · Android TV</div>
+                    <span class="ticket-cta"><i class="fas fa-download"></i> تحميل النسخة</span>
+                </a>
+            </div>
+
+            <div class="dl-status" id="dlStatus">
+                <i class="fas fa-circle-notch fa-spin"></i> <span id="dlStatusText">جارٍ تجهيز ملف التحميل…</span>
+            </div>
+
+            <div class="meta-row">
+                <span><i class="fas fa-shield-halved"></i> آمن 100%</span>
+                <span><i class="fas fa-code-branch"></i> الإصدار 1.0</span>
+                <span><i class="fas fa-database"></i> ~50 م.ب</span>
+            </div>
+        </div>
+
+        <!-- ===== بطاقة iOS ===== -->
+        <div class="card ios-card">
+            <div class="ios-badge"><i class="fab fa-apple"></i> قريباً على iPhone</div>
+            <h2>تطبيق توتيفي قادم قريباً لأجهزة iOS</h2>
+            <p>
+                نعمل على إطلاق النسخة الرسمية من توتيفي لأجهزة iPhone و iPad قريباً جداً.
+                حتى ذلك الحين، ننصح مستخدمي iOS بتحميل المشغّل <strong>Smarters Player Lite</strong> من المتجر
+                لمشاهدة المباريات والمحتوى الرياضي بجودة عالية.
+            </p>
+            <a href="https://apps.apple.com/co/app/smarters-player-lite/id1628995509" target="_blank" rel="noopener noreferrer" class="btn-ios">
+                <i class="fab fa-app-store-ios"></i> حمّل Smarters Player Lite من App Store
+                <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+
+        <!-- ===== خطوات تثبيت أندرويد ===== -->
+        <div class="card">
+            <div class="section-title"><i class="fas fa-mobile-screen-button"></i> طريقة التثبيت (أندرويد)</div>
+            <div class="badges"><span>APK</span><span>XAPK</span></div>
+
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>تحميل ملف التطبيق</h3>
+                    <p>اضغط على زر «أندرويد» في الأعلى لبدء تنزيل ملف <code>totvplus.apk</code>.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>تفعيل التثبيت من مصادر غير معروفة</h3>
+                    <p>الإعدادات ← الأمان ← <code>مصادر غير معروفة</code> (تفعيل).</p>
+                    <p style="font-size:.75rem;color:#888;margin-top:5px">أندرويد 8+: الإعدادات ← التطبيقات ← الوصول الخاص ← تثبيت تطبيقات غير معروفة.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>التثبيت والاستمتاع</h3>
+                    <p>افتح الملف من مجلد التنزيلات واضغط «تثبيت»، ثم استمتع بالمشاهدة.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== خطوات تثبيت شاشات سمارت ===== -->
+        <div class="card">
+            <div class="section-title"><i class="fas fa-tv"></i> طريقة التثبيت (شاشات سمارت)</div>
+            <div class="step-item">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>تحميل النسخة على الشاشة</h3>
+                    <p>اضغط زر «شاشات سمارت» في الأعلى لتنزيل ملف التطبيق المخصص للتلفاز.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>السماح بالتثبيت</h3>
+                    <p>من إعدادات التلفاز فعّل «التطبيقات من مصادر غير معروفة» لمتجر/متصفح التلفاز.</p>
+                </div>
+            </div>
+            <div class="step-item">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>التثبيت عبر مدير الملفات</h3>
+                    <p>استخدم تطبيق مثل <code>Downloader</code> أو مدير ملفات لفتح الملف وتثبيته على الشاشة.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== الأسئلة الشائعة ===== -->
+        <div class="card">
+            <div class="section-title"><i class="fas fa-circle-question"></i> الأسئلة الشائعة</div>
+
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)"><span><i class="fas fa-download"></i> كيف أحمّل النسخة المناسبة لجهازي؟</span><i class="fas fa-chevron-down chev"></i></div>
+                <div class="faq-a">اختر «أندرويد» للهواتف والأجهزة اللوحية، أو «شاشات سمارت» لأجهزة التلفاز الذكية و Android TV. سيبدأ التحميل فور الضغط.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)"><span><i class="fas fa-tv"></i> ما الفرق بين نسخة الأندرويد ونسخة الشاشات؟</span><i class="fas fa-chevron-down chev"></i></div>
+                <div class="faq-a">كلا النسختين تعملان بصيغة APK. نسخة الشاشات مهيّأة للتحكم عبر ريموت التلفاز، ونسخة الأندرويد مهيّأة للمس على الهاتف والتابلت.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)"><span><i class="fab fa-apple"></i> متى يتوفر التطبيق على iPhone؟</span><i class="fas fa-chevron-down chev"></i></div>
+                <div class="faq-a">قريباً جداً — نحن في المراحل النهائية من التطوير. حتى ذلك الحين استخدم Smarters Player Lite من App Store.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q" onclick="toggleFaq(this)"><span><i class="fas fa-shield-halved"></i> هل الملفات آمنة؟</span><i class="fas fa-chevron-down chev"></i></div>
+                <div class="faq-a">نعم، جميع الملفات هي الإصدار الرسمي من توتيفي TOTV+ وآمنة بنسبة 100%.</div>
+            </div>
+        </div>
+
+        <div class="footer-actions">
+            <a href="index.html" class="back-home"><i class="fas fa-house"></i> العودة للصفحة الرئيسية</a>
+            <div class="safety"><i class="fas fa-shield-halved"></i> ملفات رسمية وآمنة 100% · نسخة أندرويد ونسخة شاشات سمارت · قريباً على iPhone</div>
+        </div>
+
+    </div>
+
+    <script>
+        /* =========================================================
+           إعدادات روابط التحميل
+           ---------------------------------------------------------
+           نستخدم رابط "latest" الذي يشير دائماً لأحدث إصدار،
+           فلا يتأثر بحالة الأحرف في اسم الوسم (v1 / V1) ولا يتعطّل.
+           لتغيير نسخة شاشات السمارت لاحقاً: ارفع ملفاً جديداً باسم
+           totvplus-tv.apk في الإصدار، ثم بدّل القيمة في TV_FILE فقط.
+        ========================================================= */
+        const REPO = 'haedirasso-star/totvplu';
+        const ANDROID_FILE = 'totvplus.apk';      // ملف نسخة الأندرويد
+        const TV_FILE      = 'totvplus.apk';      // نسخة الشاشات (بدّلها إلى totvplus-tv.apk عند رفعها)
+
+        const ANDROID_URL = `https://github.com/${REPO}/releases/latest/download/${ANDROID_FILE}`;
+        const TV_URL      = `https://github.com/${REPO}/releases/latest/download/${TV_FILE}`;
+
+        /* مفتاح البوسترات (TMDB) لتعبئة الخلفية والأزرار */
+        const POSTER_KEY = '5b166a24c91f59178e8ce30f1f3735c0';
+        const TMDB = 'https://api.themoviedb.org/3';
+        const IMG  = 'https://image.tmdb.org/t/p/w500';
+
+        function triggerDownload(url, label){
+            const s = document.getElementById('dlStatus');
+            document.getElementById('dlStatusText').textContent = 'جارٍ تنزيل ' + label + '…';
+            s.style.display = 'flex';
+            window.location.href = url;
+            setTimeout(() => { s.style.display = 'none'; }, 5000);
+        }
+
+        document.getElementById('btnAndroid').addEventListener('click', e => {
+            e.preventDefault();
+            triggerDownload(ANDROID_URL, 'نسخة الأندرويد');
+        });
+        document.getElementById('btnTV').addEventListener('click', e => {
+            e.preventDefault();
+            triggerDownload(TV_URL, 'نسخة شاشات السمارت');
+        });
+
+        function toggleFaq(el){ el.closest('.faq-item').classList.toggle('active'); }
+
+        /* ===== تعبئة خلفية البوسترات من مفتاح البوسترات ===== */
+        async function loadPosters(){
+            try{
+                const pages = await Promise.all([
+                    fetch(`${TMDB}/movie/popular?api_key=${POSTER_KEY}&language=ar&page=1`).then(r=>r.json()),
+                    fetch(`${TMDB}/movie/top_rated?api_key=${POSTER_KEY}&language=ar&page=1`).then(r=>r.json())
+                ]);
+                let posters = [...(pages[0].results||[]), ...(pages[1].results||[])]
+                    .filter(m => m.poster_path)
+                    .map(m => IMG + m.poster_path);
+
+                if(!posters.length) return;
+
+                // جدار الخلفية
+                const wall = document.getElementById('posterWall');
+                const cells = 40;
+                for(let i=0;i<cells;i++){
+                    const cell = document.createElement('div');
+                    cell.className = 'pw-cell';
+                    cell.style.backgroundImage = `url('${posters[i % posters.length]}')`;
+                    wall.appendChild(cell);
+                }
+                requestAnimationFrame(()=> wall.classList.add('show'));
+
+                // خلفية كل زر تحميل
+                document.getElementById('bgAndroid').style.backgroundImage = `url('${posters[3 % posters.length]}')`;
+                document.getElementById('bgTV').style.backgroundImage = `url('${posters[7 % posters.length]}')`;
+            }catch(err){ /* تجاهل بهدوء إن تعذّر جلب البوسترات */ }
+        }
+
+        window.addEventListener('load', loadPosters);
+    </script>
+</body>
+</html>
