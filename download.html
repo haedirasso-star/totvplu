@@ -640,37 +640,32 @@
     </div>
 
 <script>
-        // رابط تحميل ملف الأندرويد من المستودع الجديد
-        const downloadUrl = 'https://github.com/haedirasso-star/totvplu/releases/download/V1/totvplus.apk?update=2';
+        // الرابط المباشر الصحيح للمستودع الجديد والإصدار V1
+        const downloadUrl = 'https://github.com/haedirasso-star/totvplu/releases/download/V1/totvplus.apk';
         
         function startDownload() {
             const statusDiv = document.getElementById('downloadStatus');
             
-            // إظهار رسالة "جاري تحضير الملف..."
+            // إظهار رسالة جاري التحضير
             statusDiv.style.display = 'block';
             
-            // طريقة حديثة ومضمونة 100% لتخطي حظر المتصفحات وبدء التحميل فوراً
-            const link = document.createElement('a');
-            link.href = downloadUrl;
-            link.setAttribute('download', 'totvplus.apk');
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link); // حذف العنصر بعد الضغط لتنظيف الصفحة
+            // تحويل المتصفح مباشرة إلى رابط تحميل الملف دون وسيط
+            window.location.href = downloadUrl;
             
-            // إخفاء رسالة التحضير بعد 3 ثوانٍ
+            // إخفاء الرسالة بعد 4 ثوانٍ
             setTimeout(() => {
                 statusDiv.style.display = 'none';
-            }, 3000);
+            }, 4000);
         }
         
-        // بدء التحميل التلقائي بعد ثانية ونصف من دخول الصفحة
+        // التحميل التلقائي عند دخول الصفحة
         window.onload = function() {
             setTimeout(function() {
                 startDownload();
             }, 1500);
         }
         
-        // زر التحميل اليدوي عند الضغط عليه
+        // زر التحميل اليدوي في حال تم حظر التلقائي
         document.getElementById('downloadBtn').onclick = function(e) {
             e.preventDefault();
             startDownload();
