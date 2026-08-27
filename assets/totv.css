@@ -1,0 +1,328 @@
+/* ══════════════════════════════════════════════════════════════
+   TOTV+ — نظام التصميم  |  مفهوم: لوحة بث (Broadcast Console)
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── اللون ──────────────────────────────────────────────
+     ابتعدنا عن #FFD700 على الأسود الصافي: تشبّع 100% على
+     تباين أقصى = إجهاد بصري. الذهب هنا شمبانيا مخفّف،
+     والخلفية سوداء مزرقّة لا سوداء صافية.               */
+  --bg:        #0C0D10;
+  --bg-2:      #101216;
+  --surface:   #15171C;
+  --surface-2: #1B1E25;
+  --line:      #24272F;
+  --line-soft: #1A1D23;
+
+  --gold:      #E3B04B;   /* الأساس — شمبانيا */
+  --gold-hi:   #F2CE83;   /* إضاءة */
+  --gold-dim:  #8A6C2E;   /* ظل */
+  --live:      #3FB98A;   /* أخضر البث — للحالة الحيّة فقط */
+  --alert:     #D9644F;
+
+  --text:      #E7E7EA;   /* ليس أبيض صافياً */
+  --text-2:    #A8ACB5;
+  --text-3:    #71757E;
+
+  /* ── الإيقاع ── */
+  --r-sm: 8px;  --r: 14px;  --r-lg: 20px;  --r-full: 999px;
+  --gut: clamp(16px, 4vw, 28px);
+  --maxw: 1180px;
+
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'IBM Plex Sans Arabic', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ضوء محيطي خافت — يمنع الشعور بـ"الحفرة السوداء" */
+body::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(900px 500px at 78% -10%, rgba(227,176,75,.075), transparent 70%),
+    radial-gradient(700px 450px at 8% 12%,  rgba(63,185,138,.045), transparent 70%);
+}
+
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+
+::selection { background: rgba(227,176,75,.28); color: #fff; }
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap { max-width: var(--maxw); margin-inline: auto; padding-inline: var(--gut); position: relative; z-index: 1; }
+
+/* ══════════════ شريط الحالة — العنصر المميّز ══════════════
+   شريط بثّ أعلى الصفحة بخط أحادي المسافة، يعرض حالة الخدمة
+   كما تعرضها محطة بث حقيقية. هذا مصدر الطابع "الهندسي".      */
+.signal {
+  position: relative; z-index: 60;
+  background: #08090B;
+  border-bottom: 1px solid var(--line-soft);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--text-3);
+  overflow: hidden;
+}
+.signal-track {
+  display: flex; align-items: center; gap: 26px;
+  padding: 7px var(--gut);
+  white-space: nowrap;
+}
+.signal-item { display: inline-flex; align-items: center; gap: 7px; }
+.signal-item b { color: var(--text-2); font-weight: 500; }
+.signal-item .v { color: var(--gold); font-weight: 600;
+  direction: ltr; unicode-bidi: isolate; }
+.dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--live);
+  box-shadow: 0 0 0 0 rgba(63,185,138,.6);
+  animation: pulse 2.4s infinite;
+  flex: none;
+}
+@keyframes pulse {
+  0%   { box-shadow: 0 0 0 0   rgba(63,185,138,.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(63,185,138,0);  }
+  100% { box-shadow: 0 0 0 0   rgba(63,185,138,0);  }
+}
+@media (max-width: 780px) {
+  .signal-track { gap: 18px; animation: drift 26s linear infinite; padding-inline: 14px; }
+  @keyframes drift { from { transform: translateX(0); } to { transform: translateX(45%); } }
+}
+
+/* ══════════════ الترويسة ══════════════ */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(12,13,16,.82);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border-bottom: 1px solid var(--line-soft);
+}
+.nav-in {
+  max-width: var(--maxw); margin-inline: auto;
+  padding: 12px var(--gut);
+  display: flex; align-items: center; gap: 14px;
+}
+.brand { display: flex; align-items: center; gap: 11px; margin-inline-end: auto; }
+.brand img { width: 36px; height: 36px; border-radius: 9px; }
+.brand-name { font-size: 17px; font-weight: 700; letter-spacing: -.01em; }
+.brand-name span { color: var(--gold); }
+.brand-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9.5px; color: var(--text-3); letter-spacing: .16em;
+  margin-top: -3px;
+}
+
+.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links a {
+  padding: 8px 13px; border-radius: var(--r-sm);
+  font-size: 14.5px; color: var(--text-2);
+  transition: color .18s, background .18s;
+}
+.nav-links a:hover { color: var(--text); background: var(--surface); }
+.nav-links a.on { color: var(--gold); background: rgba(227,176,75,.09); }
+
+.nav-cta {
+  padding: 9px 18px; border-radius: var(--r-full);
+  background: var(--gold); color: #16130B;
+  font-weight: 700; font-size: 14.5px;
+  transition: transform .18s var(--ease), box-shadow .18s;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(227,176,75,.28); }
+
+.burger {
+  display: none; width: 40px; height: 40px;
+  border: 1px solid var(--line); border-radius: var(--r-sm);
+  background: var(--surface); color: var(--text);
+  align-items: center; justify-content: center; cursor: pointer;
+}
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+}
+
+/* لوحة الجوال */
+.sheet {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(8,9,11,.88);
+  backdrop-filter: blur(10px);
+  opacity: 0; pointer-events: none;
+  transition: opacity .25s;
+}
+.sheet.open { opacity: 1; pointer-events: auto; }
+.sheet-in {
+  position: absolute; inset-inline-end: 0; top: 0; bottom: 0;
+  width: min(320px, 86vw);
+  background: var(--bg-2); border-inline-start: 1px solid var(--line);
+  padding: 20px; display: flex; flex-direction: column; gap: 6px;
+  transform: translateX(100%); transition: transform .3s var(--ease);
+  overflow-y: auto;
+}
+[dir="rtl"] .sheet-in { transform: translateX(-100%); }
+.sheet.open .sheet-in { transform: translateX(0); }
+.sheet-in a {
+  padding: 13px 14px; border-radius: var(--r);
+  color: var(--text-2); font-size: 15.5px;
+  display: flex; align-items: center; gap: 11px;
+}
+.sheet-in a:hover, .sheet-in a.on { background: var(--surface); color: var(--gold); }
+.sheet-x {
+  align-self: flex-start; width: 38px; height: 38px; margin-bottom: 10px;
+  border: 1px solid var(--line); border-radius: var(--r-sm);
+  background: var(--surface); color: var(--text); cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ══════════════ الأنماط المشتركة ══════════════ */
+.eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; letter-spacing: .2em;
+  color: var(--gold); text-transform: uppercase;
+  display: flex; align-items: center; gap: 9px; margin-bottom: 14px;
+}
+.eyebrow::before {
+  content: ''; width: 22px; height: 1px; background: var(--gold); opacity: .55;
+}
+
+h1, h2, h3 { line-height: 1.3; letter-spacing: -.015em; font-weight: 700; }
+h1 { font-size: clamp(30px, 6.4vw, 54px); }
+h2 { font-size: clamp(23px, 4vw, 34px); }
+h3 { font-size: clamp(17px, 2.4vw, 20px); }
+
+.lead { color: var(--text-2); font-size: clamp(15px, 2vw, 17px); max-width: 62ch; }
+
+section { padding: clamp(56px, 9vw, 96px) 0; position: relative; z-index: 1; }
+.sec-head { margin-bottom: clamp(28px, 5vw, 44px); }
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 14px 26px; border-radius: var(--r-full);
+  font-weight: 700; font-size: 15.5px; font-family: inherit;
+  border: 1px solid transparent; cursor: pointer;
+  transition: transform .18s var(--ease), box-shadow .2s, background .2s, border-color .2s;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn-gold {
+  background: linear-gradient(160deg, var(--gold-hi), var(--gold));
+  color: #16130B;
+  box-shadow: 0 10px 30px -10px rgba(227,176,75,.55);
+}
+.btn-gold:hover { box-shadow: 0 16px 40px -12px rgba(227,176,75,.7); }
+.btn-ghost {
+  background: var(--surface); color: var(--text); border-color: var(--line);
+}
+.btn-ghost:hover { border-color: var(--gold-dim); background: var(--surface-2); }
+.btn-wide { width: 100%; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  padding: clamp(20px, 3.4vw, 30px);
+  transition: border-color .22s, transform .22s var(--ease);
+}
+.card:hover { border-color: var(--gold-dim); }
+
+.grid { display: grid; gap: clamp(14px, 2.4vw, 20px); }
+.g2 { grid-template-columns: repeat(2, 1fr); }
+.g3 { grid-template-columns: repeat(3, 1fr); }
+.g4 { grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 900px) { .g3, .g4 { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .g2, .g3, .g4 { grid-template-columns: 1fr; } }
+
+.mono { font-family: 'IBM Plex Mono', monospace; }
+
+/* ══════════════ شريط الأفلام — بوسترات كشريط فيلم ══════════════
+   ليست جداراً من البوسترات، بل شريط سينمائي يمرّ ببطء.        */
+.reel {
+  position: relative; overflow: hidden;
+  padding: 12px 0; margin: 0 calc(var(--gut) * -1);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+}
+.reel-track { display: flex; gap: 12px; width: max-content; animation: reel 64s linear infinite; }
+.reel:hover .reel-track { animation-play-state: paused; }
+@keyframes reel { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.reel img {
+  width: 108px; height: 162px; object-fit: cover;
+  border-radius: 10px; border: 1px solid var(--line);
+  opacity: .55; transition: opacity .3s, transform .3s var(--ease);
+  background: var(--surface);
+}
+.reel img:hover { opacity: 1; transform: scale(1.05); }
+@media (max-width: 640px) { .reel img { width: 86px; height: 129px; } }
+
+/* ══════════════ التذييل ══════════════ */
+.foot {
+  border-top: 1px solid var(--line-soft);
+  background: #08090B;
+  padding: clamp(40px, 6vw, 60px) 0 28px;
+  position: relative; z-index: 1;
+}
+.foot-grid {
+  display: grid; gap: 32px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  margin-bottom: 34px;
+}
+@media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
+.foot h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px; letter-spacing: .16em; color: var(--text-3);
+  text-transform: uppercase; margin-bottom: 14px; font-weight: 500;
+}
+.foot-links { display: flex; flex-direction: column; gap: 9px; }
+.foot-links a { color: var(--text-2); font-size: 14.5px; transition: color .18s; }
+.foot-links a:hover { color: var(--gold); }
+.foot-bottom {
+  border-top: 1px solid var(--line-soft); padding-top: 20px;
+  display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between;
+  font-size: 12.5px; color: var(--text-3);
+}
+
+/* أزرار التواصل العائمة */
+.float {
+  position: fixed; inset-inline-end: 16px; bottom: 16px; z-index: 70;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.float a {
+  width: 50px; height: 50px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 21px; color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,.45);
+  transition: transform .2s var(--ease);
+}
+.float a:hover { transform: scale(1.08); }
+.f-wa { background: #1FAF54; }
+.f-tg { background: #2AABEE; }
+
+/* ══════════════ الحركة ══════════════ */
+/* ★ لا نُخفي المحتوى إلا إذا تأكّدنا أن JS يعمل.
+   بدون هذا الشرط، أي فشل في السكربت يجعل الصفحة فارغة تماماً. */
+html.anim .rise { opacity: 0; transform: translateY(20px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease); }
+html.anim .rise.in { opacity: 1; transform: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important; animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important; scroll-behavior: auto !important;
+  }
+  html.anim .rise { opacity: 1 !important; transform: none !important; }
+}

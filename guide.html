@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0C0D10">
+<title>طريقة تثبيت تطبيق توتيفي TOTV+ | شرح خطوة بخطوة</title>
+<link rel="icon" type="image/png" sizes="32x32" href="Icon-32.png">
+<link rel="apple-touch-icon" href="Icon-180.png">
+<link rel="canonical" href="https://totv.app/guide.html">
+<meta name="description" content="شرح مفصّل لتثبيت تطبيق توتيفي على هاتف أندرويد وشاشات السمارت والآيفون، وطريقة تفعيل الاشتراك بالكود.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="طريقة تثبيت تطبيق توتيفي TOTV+ | شرح خطوة بخطوة">
+<meta property="og:description" content="شرح مفصّل لتثبيت تطبيق توتيفي على هاتف أندرويد وشاشات السمارت والآيفون، وطريقة تفعيل الاشتراك بالكود.">
+<meta property="og:image" content="https://totv.app/Icon-512.png">
+<meta property="og:url" content="https://totv.app/guide.html">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/totv.css">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1BZCE09S24"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
+gtag('js',new Date());gtag('config','G-1BZCE09S24');</script>
+<style>
+.wide { max-width: 860px; }
+.tabs { display:flex; gap:8px; margin-bottom:26px; flex-wrap:wrap; }
+.tab { padding:10px 18px; border-radius:var(--r-full); border:1px solid var(--line);
+  background:var(--surface); color:var(--text-2); font-family:inherit; font-size:14.5px;
+  cursor:pointer; transition:.2s; }
+.tab:hover { border-color:var(--gold-dim); color:var(--text); }
+.tab.on { background:var(--gold); color:#16130B; border-color:var(--gold); font-weight:600; }
+.pane { display:none; } .pane.on { display:block; }
+
+.walk { counter-reset:w; display:flex; flex-direction:column; gap:0; }
+.wstep { display:flex; gap:18px; padding:24px 0; border-bottom:1px solid var(--line-soft); }
+.wstep:last-child { border-bottom:0; }
+.wnum { flex:none; width:38px; height:38px; border-radius:11px;
+  background:rgba(227,176,75,.11); border:1px solid rgba(227,176,75,.3);
+  color:var(--gold); font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:14px;
+  display:flex; align-items:center; justify-content:center; }
+.wstep::before { counter-increment:w; }
+.wbody h3 { margin-bottom:7px; }
+.wbody p { color:var(--text-2); font-size:15px; }
+.wbody .hint { margin-top:11px; padding:12px 15px; border-radius:var(--r);
+  background:var(--surface); border:1px solid var(--line-soft);
+  font-size:13.5px; color:var(--text-2); display:flex; gap:10px; align-items:flex-start; }
+.wbody .hint i { color:var(--gold); margin-top:3px; flex:none; }
+.kbd { font-family:'IBM Plex Mono',monospace; background:var(--surface-2);
+  border:1px solid var(--line); border-radius:6px; padding:2px 7px; font-size:13px; color:var(--gold); }
+</style>
+</head>
+<body>
+
+<div class="signal"><div class="signal-track"><span class="signal-item"><span class="dot"></span><b>الشرح</b> <span class="v">خطوة بخطوة</span></span><span class="signal-item"><b>الوقت المتوقع</b> <span class="v">5 دقائق</span></span><span class="signal-item"><b>لا تحتاج</b> <span class="v">خبرة تقنية</span></span></div></div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="./" class="brand">
+      <img src="Icon-192.png" alt="توتيفي TOTV+">
+      <div><div class="brand-name">TOTV<span>+</span></div><div class="brand-tag">توتيفي</div></div>
+    </a>
+    <div class="nav-links">
+      <a href="./">الرئيسية</a>
+      <a href="guide.html">طريقة التثبيت</a>
+      <a href="faq.html">أسئلة شائعة</a>
+      <a href="support.html">الدعم والقنوات</a>
+    </div>
+    <a href="download.html" class="nav-cta"><i class="fas fa-download"></i> تحميل</a>
+    <button class="burger" id="burger" aria-label="فتح القائمة"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<div class="sheet" id="sheet">
+  <div class="sheet-in">
+    <button class="sheet-x" id="sheetX" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+    <a href="./"><i class="fas fa-house"></i> الرئيسية</a>
+    <a href="download.html"><i class="fas fa-download"></i> تحميل التطبيق</a>
+    <a href="guide.html"><i class="fas fa-list-check"></i> طريقة التثبيت</a>
+    <a href="faq.html"><i class="fas fa-circle-question"></i> أسئلة شائعة</a>
+    <a href="support.html"><i class="fas fa-headset"></i> الدعم والقنوات</a>
+  </div>
+</div>
+
+<header style="padding:clamp(38px,6vw,64px) 0 clamp(20px,3vw,30px)">
+  <div class="wrap wide">
+    <div class="eyebrow">دليل الاستخدام</div>
+    <h1>من التحميل إلى المشاهدة</h1>
+    <p class="lead">اختر جهازك أدناه واتبع الخطوات بالترتيب. لو تعثّرت في أي خطوة، الدعم على واتساب يرد خلال دقائق.</p>
+  </div>
+</header>
+
+<section style="padding-top:0">
+  <div class="wrap wide">
+    <div class="tabs">
+      <button class="tab on" data-p="ph"><i class="fab fa-android"></i> هاتف أندرويد</button>
+      <button class="tab" data-p="tv"><i class="fas fa-tv"></i> شاشة سمارت</button>
+      <button class="tab" data-p="ios"><i class="fab fa-apple"></i> آيفون</button>
+    </div>
+
+    <!-- الهاتف -->
+    <div class="pane on" id="p-ph">
+      <div class="walk">
+        <div class="wstep"><div class="wnum">1</div><div class="wbody">
+          <h3>حمّل ملف التطبيق</h3>
+          <p>من صفحة التحميل اضغط «تحميل نسخة الهاتف». سيبدأ تنزيل ملف بامتداد <span class="kbd">.apk</span>.</p>
+          <div class="hint"><i class="fas fa-circle-info"></i>
+            <span>إن ظهرت رسالة «قد يكون هذا الملف ضاراً» اضغط <b>موافق</b> أو <b>تنزيل على أي حال</b>.
+            هذه رسالة يعرضها المتصفح لأي ملف خارج متجر Play، وليست تحذيراً من فيروس.</span></div>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">2</div><div class="wbody">
+          <h3>افتح الملف</h3>
+          <p>اسحب شريط الإشعارات واضغط على الملف المُنزَّل، أو افتح تطبيق <b>الملفات</b> ثم مجلد <b>التنزيلات</b>.</p>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">3</div><div class="wbody">
+          <h3>اسمح بالتثبيت</h3>
+          <p>سيسألك الهاتف عن السماح بالتثبيت من هذا المصدر. اضغط <b>الإعدادات</b> ثم فعّل
+          <span class="kbd">السماح من هذا المصدر</span> وارجع للخلف.</p>
+          <div class="hint"><i class="fas fa-shield-halved"></i>
+            <span>هذا الإذن يخصّ المتصفح الذي حمّلت منه فقط، ويمكنك إيقافه بعد التثبيت.</span></div>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">4</div><div class="wbody">
+          <h3>ثبّت وافتح</h3>
+          <p>اضغط <b>تثبيت</b> وانتظر ثوانٍ، ثم <b>فتح</b>. سجّل الدخول بحساب Google الخاص بك.</p>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">5</div><div class="wbody">
+          <h3>فعّل اشتراكك</h3>
+          <p>من صفحة <b>الحساب</b> اضغط <b>«لدي كود تفعيل»</b> والصق الكود الذي وصلك. تظهر القنوات والأفلام خلال ثوانٍ.</p>
+          <div class="hint"><i class="fas fa-key"></i>
+            <span>الكود يُدخل مرة واحدة فقط. لن يُطلب منك ثانية حتى لو سجّلت خروجاً أو غيّرت هاتفك.</span></div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- الشاشة -->
+    <div class="pane" id="p-tv">
+      <div class="walk">
+        <div class="wstep"><div class="wnum">1</div><div class="wbody">
+          <h3>فعّل التثبيت من مصادر غير معروفة</h3>
+          <p>من <b>الإعدادات</b> ← <b>الأمان والقيود</b> ← فعّل <span class="kbd">مصادر غير معروفة</span>.</p>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">2</div><div class="wbody">
+          <h3>ثبّت متصفّح تنزيل</h3>
+          <p>من متجر Google Play على الشاشة، ابحث عن <b>Downloader</b> وثبّته. هو الطريقة الأسهل لتنزيل الملفات على الشاشات.</p>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">3</div><div class="wbody">
+          <h3>أدخل رابط التحميل</h3>
+          <p>افتح Downloader واكتب في خانة العنوان: <span class="kbd" id="tvUrl">totv.app/download.html</span> ثم اضغط <b>Go</b>.</p>
+          <div class="hint"><i class="fas fa-lightbulb"></i>
+            <span>الكتابة بالريموت متعبة — يمكنك بدلاً من ذلك تحميل الملف على فلاشة USB من الحاسوب وتوصيلها بالشاشة.</span></div>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">4</div><div class="wbody">
+          <h3>ثبّت وافتح</h3>
+          <p>بعد انتهاء التنزيل اضغط <b>Install</b> ثم <b>Open</b>. استخدم أسهم الريموت للتنقّل.</p>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">5</div><div class="wbody">
+          <h3>فعّل اشتراكك</h3>
+          <p>افتح <b>الحساب</b> ← <b>لدي كود تفعيل</b> وأدخل الكود بالريموت. نفس الكود يعمل على هاتفك وشاشتك معاً.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- آيفون -->
+    <div class="pane" id="p-ios">
+      <div class="walk">
+        <div class="wstep"><div class="wnum">1</div><div class="wbody">
+          <h3>حمّل مشغّل Smarters</h3>
+          <p>النسخة الرسمية لتوتيفي على iOS قيد التطوير. حتى ذلك الحين، ثبّت
+          <b>Smarters Player Lite</b> مجاناً من App Store.</p>
+          <div style="margin-top:12px">
+            <a class="btn btn-gold" id="iosBtn" target="_blank" rel="noopener">
+              <i class="fab fa-app-store-ios"></i> فتح App Store</a>
+          </div>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">2</div><div class="wbody">
+          <h3>اطلب بيانات اشتراكك</h3>
+          <p>راسلنا على واتساب وأخبرنا أنك تستخدم آيفون. سنرسل لك ثلاثة أسطر:
+          <b>الرابط</b> و<b>اسم المستخدم</b> و<b>كلمة المرور</b>.</p>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">3</div><div class="wbody">
+          <h3>أدخل البيانات</h3>
+          <p>افتح المشغّل واختر <span class="kbd">Login with Xtream Codes API</span>، ثم الصق البيانات الثلاثة كما وصلتك.</p>
+          <div class="hint"><i class="fas fa-triangle-exclamation"></i>
+            <span>انتبه للمسافات الزائدة عند اللصق — هي أكثر سبب لفشل الدخول.</span></div>
+        </div></div>
+
+        <div class="wstep"><div class="wnum">4</div><div class="wbody">
+          <h3>ابدأ المشاهدة</h3>
+          <p>ستظهر لك القنوات والأفلام مباشرة بنفس محتوى تطبيق الأندرويد.</p>
+        </div></div>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;text-align:center;padding:28px;background:var(--bg-2);
+                border:1px solid var(--line);border-radius:var(--r-lg)">
+      <h3 style="margin-bottom:8px">تعثّرت في خطوة؟</h3>
+      <p class="lead" style="margin:0 auto 18px">أرسل لنا صورة للشاشة وسنرشدك فوراً.</p>
+      <a class="btn btn-gold" id="waHelp" target="_blank" rel="noopener">
+        <i class="fab fa-whatsapp"></i> تواصل مع الدعم</a>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+<div class="float" id="float"></div>
+<script src="assets/totv.js"></script>
+<script src="assets/footer.js"></script>
+<script>
+document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+  document.querySelectorAll('.tab').forEach(x => x.classList.remove('on'));
+  document.querySelectorAll('.pane').forEach(x => x.classList.remove('on'));
+  t.classList.add('on');
+  document.getElementById('p-' + t.dataset.p).classList.add('on');
+}));
+document.getElementById('iosBtn').href = TOTV.links.ios;
+document.getElementById('waHelp').href = TOTV.links.whatsapp +
+  '?text=' + encodeURIComponent('مرحباً، أحتاج مساعدة في تثبيت التطبيق');
+initRise();
+</script>
+</body>
+</html>

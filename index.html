@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0C0D10">
+<title>توتيفي TOTV+ | أفلام ومسلسلات ومباريات مباشرة على هاتفك وشاشتك</title>
+
+<link rel="icon" type="image/png" sizes="32x32" href="Icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="Icon-16.png">
+<link rel="apple-touch-icon" href="Icon-180.png">
+<link rel="canonical" href="https://totv.app/">
+
+<meta name="description" content="تطبيق توتيفي TOTV+ لمشاهدة الأفلام والمسلسلات ومباريات كرة القدم مباشرة بجودة 4K. نسخة للأندرويد ونسخة لشاشات السمارت. تفعيل فوري بكود خلال ثوانٍ.">
+<meta name="keywords" content="تحميل تطبيق totv, توتيفي, totv plus, تطبيق توتيفي, تحميل توتيفي, مشاهدة مباريات, أفلام 4K, تطبيق شاشات سمارت, totv apk">
+<meta name="robots" content="index, follow, max-image-preview:large">
+
+<meta property="og:title" content="توتيفي TOTV+ | أفلام ومسلسلات ومباريات مباشرة">
+<meta property="og:description" content="أكثر من 10,000 فيلم ومسلسل وقنوات رياضية مباشرة. تفعيل فوري بكود خلال ثوانٍ.">
+<meta property="og:image" content="https://totv.app/Icon-512.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://totv.app/">
+<meta property="og:site_name" content="توتيفي TOTV+">
+<meta property="og:locale" content="ar_IQ">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="assets/totv.css">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1BZCE09S24"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date()); gtag('config', 'G-1BZCE09S24');
+</script>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication",
+"name":"توتيفي TOTV+","applicationCategory":"EntertainmentApplication",
+"operatingSystem":"Android, Android TV","url":"https://totv.app/",
+"description":"تطبيق لمشاهدة الأفلام والمسلسلات ومباريات كرة القدم مباشرة",
+"offers":{"@type":"Offer","price":"5000","priceCurrency":"IQD"}}
+</script>
+
+<style>
+/* ══════ الواجهة الأولى ══════ */
+.hero { padding: clamp(48px, 8vw, 84px) 0 clamp(30px, 5vw, 48px); }
+.hero-grid {
+  display: grid; grid-template-columns: 1.15fr .85fr;
+  gap: clamp(28px, 5vw, 60px); align-items: center;
+}
+@media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } }
+
+.hero h1 { margin-bottom: 18px; }
+.hero h1 .g {
+  background: linear-gradient(120deg, var(--gold-hi), var(--gold) 55%, var(--gold-dim));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero-sub { color: var(--text-2); font-size: clamp(15px, 2.1vw, 17.5px); max-width: 52ch; margin-bottom: 26px; }
+.hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 26px; }
+@media (max-width: 480px) { .hero-btns .btn { width: 100%; } }
+
+.hero-note {
+  font-family: 'IBM Plex Mono', monospace; font-size: 12px;
+  color: var(--text-3); display: flex; align-items: center; gap: 8px;
+}
+
+/* بطاقة الجهاز — العنصر العملي */
+.device {
+  background: linear-gradient(165deg, var(--surface-2), var(--surface));
+  border: 1px solid var(--line); border-radius: var(--r-lg);
+  padding: clamp(20px, 3vw, 26px);
+  box-shadow: 0 28px 70px -30px rgba(0,0,0,.9);
+}
+.device-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-bottom: 14px; margin-bottom: 16px; border-bottom: 1px solid var(--line);
+}
+.device-head .t { font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: .14em; color: var(--text-3); }
+.device-row {
+  display: flex; align-items: center; gap: 13px;
+  padding: 13px; border-radius: var(--r);
+  border: 1px solid var(--line-soft); background: rgba(255,255,255,.02);
+  margin-bottom: 9px; transition: border-color .2s, background .2s;
+}
+.device-row:hover { border-color: var(--gold-dim); background: rgba(227,176,75,.04); }
+.device-row.rec { border-color: var(--gold); background: rgba(227,176,75,.07); }
+.device-ic {
+  width: 40px; height: 40px; border-radius: 11px; flex: none;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(227,176,75,.11); color: var(--gold); font-size: 17px;
+}
+.device-txt { flex: 1; min-width: 0; }
+.device-txt b { display: block; font-size: 15px; font-weight: 600; }
+.device-txt span { font-size: 12.5px; color: var(--text-3); }
+.device-row i.go { color: var(--text-3); font-size: 13px; }
+.rec-tag {
+  font-family: 'IBM Plex Mono', monospace; font-size: 9.5px;
+  background: var(--gold); color: #16130B; padding: 2px 7px;
+  border-radius: var(--r-full); font-weight: 600; letter-spacing: .06em;
+}
+
+/* ══════ الأرقام ══════ */
+.stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line-soft);
+  border: 1px solid var(--line-soft); border-radius: var(--r-lg); overflow: hidden; }
+@media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stat { background: var(--bg-2); padding: 22px 16px; text-align: center; }
+.stat b { display: block; font-family: 'IBM Plex Mono', monospace; font-size: clamp(21px, 3.4vw, 29px);
+  font-weight: 600; color: var(--gold); letter-spacing: -.02em;
+  direction: ltr; unicode-bidi: isolate; }
+.stat span { font-size: 12.5px; color: var(--text-3); }
+
+/* ══════ المزايا ══════ */
+.feat-ic {
+  width: 44px; height: 44px; border-radius: 12px; margin-bottom: 15px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(227,176,75,.1); color: var(--gold); font-size: 18px;
+}
+.feat h3 { margin-bottom: 8px; }
+.feat p { color: var(--text-2); font-size: 14.5px; line-height: 1.75; }
+
+/* ══════ الباقات ══════ */
+.plan { position: relative; text-align: center; }
+.plan.hot { border-color: var(--gold); background: linear-gradient(170deg, rgba(227,176,75,.09), var(--surface)); }
+.plan-badge {
+  position: absolute; top: -11px; inset-inline-start: 50%; transform: translateX(50%);
+  background: var(--gold); color: #16130B; font-size: 11px; font-weight: 700;
+  padding: 3px 14px; border-radius: var(--r-full); white-space: nowrap;
+}
+[dir="rtl"] .plan-badge { transform: translateX(50%); }
+.plan-name { font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: .14em; color: var(--text-3); }
+.plan-price { font-family: 'IBM Plex Mono', monospace; font-size: clamp(30px, 5vw, 40px);
+  font-weight: 600; color: var(--gold); margin: 8px 0 2px; letter-spacing: -.02em;
+  direction: ltr; unicode-bidi: isolate; }
+.plan-price small { font-size: 14px; color: var(--text-3); font-weight: 400; }
+.plan-per { font-size: 13px; color: var(--text-3); margin-bottom: 6px; }
+.plan-save { font-size: 12px; color: var(--live); margin-bottom: 16px; min-height: 18px; }
+.plan ul { list-style: none; text-align: start; margin-bottom: 20px; }
+.plan li { font-size: 14px; color: var(--text-2); padding: 7px 0; display: flex; gap: 9px; align-items: flex-start; }
+.plan li i { color: var(--live); font-size: 12px; margin-top: 5px; flex: none; }
+
+/* ══════ الخطوات ══════ */
+.steps { counter-reset: s; display: grid; gap: 1px; background: var(--line-soft);
+  border: 1px solid var(--line-soft); border-radius: var(--r-lg); overflow: hidden; }
+.step { background: var(--bg-2); padding: 22px clamp(18px,3vw,26px); display: flex; gap: 16px; align-items: flex-start; }
+.step::before {
+  counter-increment: s; content: counter(s, decimal-leading-zero);
+  font-family: 'IBM Plex Mono', monospace; font-size: 13px; font-weight: 600;
+  color: var(--gold); flex: none; padding-top: 2px; min-width: 26px;
+}
+.step b { display: block; font-size: 16px; margin-bottom: 5px; font-weight: 600; }
+.step p { color: var(--text-2); font-size: 14.5px; }
+</style>
+</head>
+<body>
+
+<!-- شريط الحالة -->
+<div class="signal">
+  <div class="signal-track">
+    <span class="signal-item"><span class="dot"></span><b>الخدمة</b> <span class="v">تعمل الآن</span></span>
+    <span class="signal-item"><b>القنوات</b> <span class="v">2,400</span></span>
+    <span class="signal-item"><b>الأفلام والمسلسلات</b> <span class="v">10,000</span></span>
+    <span class="signal-item"><b>أعلى جودة</b> <span class="v">4K</span></span>
+    <span class="signal-item"><b>زمن التفعيل</b> <span class="v">أقل من دقيقة</span></span>
+    <span class="signal-item"><b>الدعم</b> <span class="v">24/7</span></span>
+  </div>
+</div>
+
+<!-- الترويسة -->
+<nav class="nav">
+  <div class="nav-in">
+    <a href="./" class="brand">
+      <img src="Icon-192.png" alt="توتيفي TOTV+">
+      <div>
+        <div class="brand-name">TOTV<span>+</span></div>
+        <div class="brand-tag">توتيفي</div>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="./">الرئيسية</a>
+      <a href="guide.html">طريقة التثبيت</a>
+      <a href="faq.html">أسئلة شائعة</a>
+      <a href="support.html">الدعم والقنوات</a>
+    </div>
+    <a href="download.html" class="nav-cta"><i class="fas fa-download"></i> تحميل</a>
+    <button class="burger" id="burger" aria-label="فتح القائمة"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- قائمة الجوال -->
+<div class="sheet" id="sheet">
+  <div class="sheet-in">
+    <button class="sheet-x" id="sheetX" aria-label="إغلاق"><i class="fas fa-times"></i></button>
+    <a href="./"><i class="fas fa-house"></i> الرئيسية</a>
+    <a href="download.html"><i class="fas fa-download"></i> تحميل التطبيق</a>
+    <a href="guide.html"><i class="fas fa-list-check"></i> طريقة التثبيت</a>
+    <a href="faq.html"><i class="fas fa-circle-question"></i> أسئلة شائعة</a>
+    <a href="support.html"><i class="fas fa-headset"></i> الدعم والقنوات</a>
+  </div>
+</div>
+
+<!-- الواجهة الأولى -->
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">أفلام · مسلسلات · مباريات مباشرة</div>
+      <h1>كل ما تحبّ مشاهدته<br><span class="g">في تطبيق واحد</span></h1>
+      <p class="hero-sub">
+        أكثر من عشرة آلاف فيلم ومسلسل، وقنوات رياضية تنقل المباريات لحظة بلحظة.
+        يعمل على هاتفك وعلى شاشتك، والتفعيل بكود واحد لا يستغرق دقيقة.
+      </p>
+      <div class="hero-btns">
+        <a href="download.html" class="btn btn-gold"><i class="fas fa-download"></i> حمّل التطبيق</a>
+        <a href="#plans" class="btn btn-ghost"><i class="fas fa-tags"></i> شاهد الأسعار</a>
+      </div>
+      <div class="hero-note">
+        <i class="fas fa-shield-halved"></i> تحميل مباشر من GitHub الرسمي — بلا إعلانات ولا وسطاء
+      </div>
+    </div>
+
+    <!-- بطاقة اختيار الجهاز -->
+    <div class="device rise">
+      <div class="device-head">
+        <span class="t">اختر جهازك</span>
+        <span class="t" id="devHint">—</span>
+      </div>
+      <a href="download.html" class="device-row" id="rowAndroid">
+        <span class="device-ic"><i class="fab fa-android"></i></span>
+        <span class="device-txt"><b>هاتف أندرويد</b><span>ملف APK — تثبيت مباشر</span></span>
+        <i class="fas fa-chevron-left go"></i>
+      </a>
+      <a href="download.html" class="device-row" id="rowTV">
+        <span class="device-ic"><i class="fas fa-tv"></i></span>
+        <span class="device-txt"><b>شاشة سمارت</b><span>نسخة مخصّصة للريموت</span></span>
+        <i class="fas fa-chevron-left go"></i>
+      </a>
+      <a href="#" class="device-row" id="rowIOS" target="_blank" rel="noopener">
+        <span class="device-ic"><i class="fab fa-apple"></i></span>
+        <span class="device-txt"><b>آيفون و آيباد</b><span>عبر مشغّل Smarters Player</span></span>
+        <i class="fas fa-chevron-left go"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- شريط الأفلام -->
+  <div class="wrap" style="margin-top: clamp(32px,5vw,52px)">
+    <div class="reel"><div class="reel-track" id="reel"></div></div>
+  </div>
+</header>
+
+<!-- الأرقام -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="stats rise">
+      <div class="stat"><b>10,000</b><span>فيلم ومسلسل وأكثر</span></div>
+      <div class="stat"><b>2,400</b><span>قناة مباشرة وأكثر</span></div>
+      <div class="stat"><b>4K</b><span>أعلى جودة متاحة</span></div>
+      <div class="stat"><b>24/7</b><span>دعم فني</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- المزايا -->
+<section id="features">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <div class="eyebrow">لماذا توتيفي</div>
+      <h2>مصمّم ليعمل، لا ليبهر فقط</h2>
+      <p class="lead">ركّزنا على ما يهمّك فعلاً: سرعة الفتح، ثبات البث، ووضوح الصورة حتى على الإنترنت الضعيف.</p>
+    </div>
+    <div class="grid g3">
+      <div class="card feat rise">
+        <div class="feat-ic"><i class="fas fa-futbol"></i></div>
+        <h3>المباريات لحظة بلحظة</h3>
+        <p>الدوريات الأوروبية والعربية والبطولات الكبرى على قنوات مخصّصة، بجودة تتكيّف مع سرعة إنترنتك تلقائياً.</p>
+      </div>
+      <div class="card feat rise">
+        <div class="feat-ic"><i class="fas fa-film"></i></div>
+        <h3>مكتبة تتجدّد أسبوعياً</h3>
+        <p>أحدث الأفلام والمسلسلات مع الترجمة العربية، مرتّبة حسب النوع والسنة لتصل لما تريد بسرعة.</p>
+      </div>
+      <div class="card feat rise">
+        <div class="feat-ic"><i class="fas fa-bolt"></i></div>
+        <h3>تفعيل بكود واحد</h3>
+        <p>أدخل الكود مرة واحدة فيُحفظ اشتراكك. لن يُطلب منك مرة أخرى حتى لو غيّرت هاتفك أو أعدت التثبيت.</p>
+      </div>
+      <div class="card feat rise">
+        <div class="feat-ic"><i class="fas fa-mobile-screen"></i></div>
+        <h3>هاتف وشاشة</h3>
+        <p>نسخة للهاتف بواجهة لمس، ونسخة للشاشات مصمّمة للتنقّل بالريموت. الاشتراك نفسه يعمل على الاثنين.</p>
+      </div>
+      <div class="card feat rise">
+        <div class="feat-ic"><i class="fas fa-gauge-high"></i></div>
+        <h3>خفيف وسريع</h3>
+        <p>يفتح خلال ثانية واحدة ويحفظ ما شاهدته محلياً، فيعمل حتى عند ضعف الشبكة.</p>
+      </div>
+      <div class="card feat rise">
+        <div class="feat-ic"><i class="fas fa-headset"></i></div>
+        <h3>دعم يردّ فعلاً</h3>
+        <p>فريق على واتساب وتلجرام على مدار الساعة. مشكلتك تُحلّ في دقائق لا في أيام.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- كيف تبدأ -->
+<section id="how" style="background:var(--bg-2); border-block:1px solid var(--line-soft)">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <div class="eyebrow">أربع خطوات</div>
+      <h2>من التحميل إلى المشاهدة</h2>
+      <p class="lead">لا تحتاج خبرة تقنية. العملية كاملة تستغرق أقل من خمس دقائق.</p>
+    </div>
+    <div class="steps rise">
+      <div class="step"><div><b>حمّل التطبيق</b><p>اختر نسخة الهاتف أو الشاشة من صفحة التحميل. الملف يأتي مباشرة من GitHub الرسمي.</p></div></div>
+      <div class="step"><div><b>ثبّته على جهازك</b><p>افتح الملف واسمح بالتثبيت من مصادر غير معروفة. <a href="guide.html" style="color:var(--gold)">شرح مصوّر خطوة بخطوة</a>.</p></div></div>
+      <div class="step"><div><b>احصل على كود التفعيل</b><p>تواصل معنا على واتساب واختر الباقة المناسبة. يصلك الكود فور تأكيد الدفع.</p></div></div>
+      <div class="step"><div><b>أدخل الكود وابدأ</b><p>من صفحة الحساب اضغط «لدي كود تفعيل» والصقه. تظهر القنوات والأفلام خلال ثوانٍ.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- الباقات -->
+<section id="plans">
+  <div class="wrap">
+    <div class="sec-head rise">
+      <div class="eyebrow">الأسعار</div>
+      <h2>باقة واحدة تفتح كل شيء</h2>
+      <p class="lead">لا فروق في المحتوى بين الباقات — الفرق في المدة فقط. كل باقة تشمل المكتبة الكاملة والقنوات الرياضية.</p>
+    </div>
+    <div class="grid g3" id="plans-grid"></div>
+    <p class="mono" style="text-align:center;margin-top:26px;font-size:12.5px;color:var(--text-3)">
+      الأسعار بالدينار العراقي · الدفع عبر واتساب · التفعيل فوري بعد التأكيد
+    </p>
+  </div>
+</section>
+
+<!-- الدعوة الأخيرة -->
+<section style="background:var(--bg-2); border-block:1px solid var(--line-soft)">
+  <div class="wrap" style="text-align:center">
+    <div class="rise">
+      <div class="eyebrow" style="justify-content:center">ابدأ الآن</div>
+      <h2 style="margin-bottom:14px">جاهز للمشاهدة؟</h2>
+      <p class="lead" style="margin:0 auto 28px">حمّل التطبيق مجاناً وجرّبه، ثم فعّل اشتراكك متى شئت.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="download.html" class="btn btn-gold"><i class="fas fa-download"></i> حمّل التطبيق</a>
+        <a href="support.html" class="btn btn-ghost"><i class="fas fa-comments"></i> تحدّث مع الدعم</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="footer"></div>
+<div class="float" id="float"></div>
+
+<script src="assets/totv.js"></script>
+<script src="assets/footer.js"></script>
+<script>
+/* الباقات */
+document.getElementById('plans-grid').innerHTML = TOTV.plans.map(p => `
+  <div class="card plan rise ${p.popular ? 'hot' : ''}">
+    ${p.popular ? '<span class="plan-badge">الأكثر اختياراً</span>' : ''}
+    <div class="plan-name">${p.name}</div>
+    <div class="plan-price">${p.price} <small>د.ع</small></div>
+    <div class="plan-per">${p.per}</div>
+    <div class="plan-save" dir="auto">${p.save || ''}</div>
+    <ul>
+      <li><i class="fas fa-check"></i> المكتبة الكاملة للأفلام والمسلسلات</li>
+      <li><i class="fas fa-check"></i> كل القنوات الرياضية والمباريات</li>
+      <li><i class="fas fa-check"></i> جودة تصل إلى 4K</li>
+      <li><i class="fas fa-check"></i> يعمل على الهاتف والشاشة معاً</li>
+      <li><i class="fas fa-check"></i> دعم فني على مدار الساعة</li>
+    </ul>
+    <a href="${TOTV.links.whatsapp}?text=${encodeURIComponent('مرحباً، أريد الاشتراك في باقة ' + p.per)}"
+       target="_blank" rel="noopener" class="btn ${p.popular ? 'btn-gold' : 'btn-ghost'} btn-wide">
+      <i class="fab fa-whatsapp"></i> اطلب هذه الباقة
+    </a>
+  </div>`).join('');
+
+/* بطاقة الجهاز */
+(function () {
+  const dev = detectDevice();
+  document.getElementById('devHint').textContent =
+    dev === 'other' ? 'ثلاث نسخ متاحة' : DEVICE_LABEL[dev];
+  document.getElementById('rowIOS').href = TOTV.links.ios;
+  const map = { android: 'rowAndroid', tv: 'rowTV', ios: 'rowIOS' };
+  const row = document.getElementById(map[dev]);
+  if (row) {
+    row.classList.add('rec');
+    row.querySelector('.device-txt').insertAdjacentHTML('beforeend',
+      ' <span class="rec-tag">الأنسب لك</span>');
+  }
+})();
+
+initReel('reel', 18);
+initRise();
+</script>
+</body>
+</html>

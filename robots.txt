@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://totv.app/sitemap.xml
