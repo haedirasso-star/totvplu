@@ -1,0 +1,39 @@
+{
+  "_readme": "كل روابط الموقع وباقاته هنا. عدّل ثم احفظ — الموقع يُبنى وينشر تلقائياً خلال دقيقتين. اترك الرابط فارغاً \"\" لإخفاء زرّه.",
+
+  "site": "https://totv.app",
+  "name": "توتيفي TOTV+",
+  "analytics": "G-1BZCE09S24",
+
+  "links": {
+    "whatsapp": "https://wa.me/9647714415816",
+    "email": "totv.Support@gmail.com",
+    "telegram": "https://t.me/O_2828",
+    "payment": "https://payment-totv.vercel.app/",
+    "facebook": "",
+    "instagram": "",
+    "tiktok": "",
+    "youtube": ""
+  },
+
+  "files": {
+    "_readme": "أسماء ملفات التطبيق المرفوعة في صفحة الإصدارات. إن لم تُرفع نسخة الشاشات يُستخدم ملف الهاتف لها.",
+    "android": "totvplus.apk",
+    "tv": "totvplus-tv.apk"
+  },
+
+  "plans": [
+    { "name": "شهر",    "price": "5,000",  "per": "شهر واحد",   "save": "",             "popular": false },
+    { "name": "3 أشهر", "price": "13,000", "per": "ثلاثة أشهر", "save": "توفير 2,000",  "popular": true  },
+    { "name": "سنة",    "price": "45,000", "per": "سنة كاملة",  "save": "توفير 15,000", "popular": false }
+  ],
+  "currency": "د.ع",
+
+  "tmdb": "5b166a24c91f59178e8ce30f1f3735c0",
+
+  "matches": {
+    "_readme": "عدد أيام صفحات المباريات المحفوظة بعد انتهائها (لنتائج البحث).",
+    "keepDays": 30,
+    "timezone": "Asia/Baghdad"
+  }
+}
