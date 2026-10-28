@@ -6,6 +6,8 @@ on:
   schedule:
     - cron: '23 */2 * * *'
   workflow_dispatch:
+  repository_dispatch:
+    types: [app-update]   # ★ عند «إرسال التحديث» من تطبيق الإدارة ⇐ زر التحميل يشير للإصدار الجديد فوراً
 
 permissions:
   contents: read

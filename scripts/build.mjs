@@ -54,6 +54,21 @@ async function release() {
     REL.tv = { ...REL.android, shared: true };
     return;
   }
+  // ★ آخر إصدار من موقع التطبيق (cdn.totv.app/app/version.json) — نفس الملف الذي يُحدّث منه التطبيق نفسه.
+  //   يُنشر من تطبيق الإدارة ← «تحديث التطبيق» ⇐ الموقع يتحدّث فوراً بلا رفع يدوي إلى Releases.
+  try {
+    const cdn = String(cfg.cdn || 'https://cdn.totv.app').replace(/\/+$/, '');
+    const vr = await get(`${cdn}/app/version.json?b=${Date.now()}`);
+    if (vr) {
+      const v = await vr.json();
+      const date = Math.floor(new Date(v.published_at || v.at || Date.now()) / 1000);
+      const ver = String(v.version || '') + (v.code ? ` (${v.code})` : '');
+      if (v.phone?.url) REL.android = { href: v.phone.url, size: v.phone.size || 0, ver, date, name: 'TOTVplus.apk', cdn: true };
+      if (v.tv?.url && v.tv.size) REL.tv = { href: v.tv.url, size: v.tv.size, ver, date, name: 'TOTV-Smart.apk', cdn: true };
+      if (!REL.tv && REL.android) REL.tv = { ...REL.android, shared: true };
+      if (REL.android) { log('الإصدار من موقع التطبيق', ver); return; }
+    }
+  } catch (e) { log('⚠️ version.json:', e.message); }
   if (!repo) { log('لا يوجد مستودع (تشغيل محلي) — بلا ملف تطبيق'); return; }
   const h = { Accept: 'application/vnd.github+json', ...(tok ? { Authorization: `Bearer ${tok}` } : {}) };
   const r = await get(`https://api.github.com/repos/${repo}/releases/latest`, { headers: h });

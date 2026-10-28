@@ -16,6 +16,7 @@
   },
 
   "feed": "https://haedirasso-star.github.io/totv-sports/matches.json",
+  "cdn": "https://cdn.totv.app",
 
   "ios": {
     "_readme": "مستخدمو الآيفون: التطبيق المشغّل + الكود الذي يكتبونه فيه. بيانات الاشتراك تُرسل من واتساب.",
