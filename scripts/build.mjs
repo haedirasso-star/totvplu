@@ -68,7 +68,7 @@ async function release() {
       if (v.phone?.url) REL.android = { href: v.phone.url, size: v.phone.size || 0, ver, date, name: 'TOTVplus.apk', cdn: true };
       if (v.tv?.url && v.tv.size) REL.tv = { href: v.tv.url, size: v.tv.size, ver, date, name: 'TOTV-Smart.apk', cdn: true };
       if (!REL.tv && REL.android) REL.tv = { ...REL.android, shared: true };
-      if (REL.android) { log('الإصدار من موقع التطبيق', ver); return; }
+      if (REL.android) { log('الإصدار من موقع التطبيق', ver); console.log(`::notice::زر التحميل ⇐ ${ver} ${REL.android.href.split('/').pop()}`); return; }
     }
   } catch (e) { log('⚠️ version.json:', e.message); }
   if (!repo) { log('لا يوجد مستودع (تشغيل محلي) — بلا ملف تطبيق'); return; }
