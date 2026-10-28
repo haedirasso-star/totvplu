@@ -58,9 +58,11 @@ async function release() {
   //   يُنشر من تطبيق الإدارة ← «تحديث التطبيق» ⇐ الموقع يتحدّث فوراً بلا رفع يدوي إلى Releases.
   try {
     const cdn = String(cfg.cdn || 'https://cdn.totv.app').replace(/\/+$/, '');
-    const vr = await get(`${cdn}/app/version.json?b=${Date.now()}`);
-    if (vr) {
-      const v = await vr.json();
+    // المنشور للمستخدمين (version.json) — وإن لم يُنشر بعد أو كان أقدم: آخر بناء ناجح (candidate.json)
+    const pj = async (f) => { const r = await get(`${cdn}/app/${f}?b=${Date.now()}`); return r ? r.json() : null; };
+    const [pub, cand] = [await pj('version.json'), await pj('candidate.json')];
+    const v = pub && (!cand || (pub.code || 0) >= (cand.code || 0)) ? pub : cand;
+    if (v) {
       const date = Math.floor(new Date(v.published_at || v.at || Date.now()) / 1000);
       const ver = String(v.version || '') + (v.code ? ` (${v.code})` : '');
       if (v.phone?.url) REL.android = { href: v.phone.url, size: v.phone.size || 0, ver, date, name: 'TOTVplus.apk', cdn: true };
