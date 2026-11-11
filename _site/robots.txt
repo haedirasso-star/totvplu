@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /dl/
+Sitemap: https://totv.app/sitemap.xml

@@ -67,6 +67,25 @@ async function release() {
       const ver = String(v.version || '') + (v.code ? ` (${v.code})` : '');
       if (v.phone?.url) REL.android = { href: v.phone.url, size: v.phone.size || 0, ver, date, name: 'TOTVplus.apk', cdn: true };
       if (v.tv?.url && v.tv.size) REL.tv = { href: v.tv.url, size: v.tv.size, ver, date, name: 'TOTV-Smart.apk', cdn: true };
+      // ★ نسخة الشاشات = التطبيق المستقل الخفيف (مستودع totvplus-tv) — رابطه يُقرأ من مستودعه مباشرة
+      try {
+        const t = cfg.tvApp;
+        if (t?.repo && t?.file) {
+          const gh = { Accept: 'application/vnd.github+json', ...(tok ? { Authorization: `Bearer ${tok}` } : {}) };
+          const br = t.branch || 'apk';
+          const fr = await get(`https://api.github.com/repos/${t.repo}/contents/${t.file}?ref=${br}`, { headers: gh });
+          const fj = fr ? await fr.json() : null;
+          if (fj?.size > 1048576) {
+            let tver = '';
+            try {
+              const pr = await get(`https://raw.githubusercontent.com/${t.repo}/main/pubspec.yaml`);
+              tver = ((pr ? await pr.text() : '').match(/^version:\s*([\d.]+)/m) || [])[1] || '';
+            } catch {}
+            REL.tv = { href: `https://github.com/${t.repo}/raw/${br}/${t.file}`, size: fj.size, ver: tver || ver, date, name: 'TOTV-TV.apk', cdn: true };
+            log('نسخة الشاشات من', t.repo, tver);
+          }
+        }
+      } catch (e) { log('⚠️ tvApp:', e.message); }
       if (!REL.tv && REL.android) REL.tv = { ...REL.android, shared: true };
       if (REL.android) { log('الإصدار من موقع التطبيق', ver); console.log(`::notice::زر التحميل ⇐ ${ver} ${REL.android.href.split('/').pop()}`); return; }
     }
