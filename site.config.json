@@ -32,10 +32,8 @@
   },
 
   "tvApp": {
-    "_readme": "نسخة الشاشات المستقلة الخفيفة: تُقرأ من مستودعها مباشرة. arm32 يعمل على كل الشاشات والصناديق.",
-    "repo": "haedirasso-star/totvplus-tv",
-    "branch": "apk",
-    "file": "totvplus-tv-arm32.apk"
+    "_readme": "نسخة الشاشات المستقلة الخفيفة: تُنسخ تلقائياً إلى cdn.totv.app/app/tv/. arm32 يعمل على كل الشاشات والصناديق.",
+    "arch": "arm32"
   },
 
   "plans": [
